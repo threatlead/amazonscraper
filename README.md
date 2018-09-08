@@ -8,7 +8,7 @@ data = AmazonScraper.scrape('B003F2X13I')
 print(data)
 ```
 
-```json
+```
 {
   'asin': 'B003F2X13I',
   'title': 'Yamaha YPG-535 88-Key Portable Grand Piano with Stand and Power Adapter',
