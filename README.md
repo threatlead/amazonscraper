@@ -25,6 +25,8 @@ print(data)
   "medium_img_url": "https://images-na.ssl-images-amazon.com/images/I/71npKLfpgUL._SL160_.jpg",
   "small_img_url": "https://images-na.ssl-images-amazon.com/images/I/71npKLfpgUL._SL75_.jpg",
   "list_price": 760.00,
-  "price": 499.99
+  "price": 499.99,
+  "rating": 4.0,
+  "review_count": 166
 }
 ```
