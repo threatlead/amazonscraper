@@ -11,9 +11,11 @@ class AmazonScraper:
     def html_parse(cls, html):
         doc = pq(html)
         title = doc("h1#title").text().strip('[\\n ]')
+        # -- price
         list_price = doc("div#price > table").find('tr').eq(0).find('td').eq(1).find('span').eq(0).text().strip('$')
-        list_price = float(list_price)
-        price = float(doc("div#cerberus-data-metrics").attr('data-asin-price'))
+        list_price = float(list_price) if list_price is not '' else None
+        price = doc("div#cerberus-data-metrics").attr('data-asin-price')
+        price = float(price) if price is not '' else None
         asin = doc("div#cerberus-data-metrics").attr('data-asin')
         brand = doc("div#mbc").attr('data-brand')
         features = [li.text().strip('[\\n\\t]') for li in doc("div#feature-bullets").find('li').items()]
@@ -69,5 +71,5 @@ class AmazonScraper:
 
 
 if __name__ == '__main__':
-    data = AmazonScraper.scrape('B075JSK7TR')
+    data = AmazonScraper.scrape('B01J42JPJG')
     print(data)
