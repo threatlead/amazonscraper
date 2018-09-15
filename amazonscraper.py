@@ -41,6 +41,8 @@ class AmazonScraper:
         # --
         review_count = doc('span#acrCustomerReviewText').html()
         if 'customer reviews' in review_count:
+            review_count.strip('customer reviews')
+            review_count = review_count.replace(',', '') if ',' in review_count else review_count
             review_count = int(review_count.strip('customer reviews'))
         else:
             review_count = None
@@ -71,5 +73,5 @@ class AmazonScraper:
 
 
 if __name__ == '__main__':
-    data = AmazonScraper.scrape('B01J42JPJG')
+    data = AmazonScraper.scrape('B00NZTKOQI')
     print(data)
